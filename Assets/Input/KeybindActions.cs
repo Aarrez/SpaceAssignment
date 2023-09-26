@@ -64,11 +64,11 @@ public partial class @KeybindActions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Mouse"",
+                    ""name"": ""Look"",
                     ""type"": ""Value"",
                     ""id"": ""da2d3ce8-1d9f-4c98-aa45-b0136fbd49e1"",
-                    ""expectedControlType"": ""Delta"",
-                    ""processors"": """",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": ""StickDeadzone,NormalizeVector2,ScaleVector2(x=2,y=2)"",
                     ""interactions"": """",
                     ""initialStateCheck"": true
                 }
@@ -306,13 +306,57 @@ public partial class @KeybindActions: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""487ddba2-37ad-4061-9ced-3d61dbc84ba1"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ForwardBackwards"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""7fbfa5cb-3013-4bf9-bb11-93a2d961299d"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ForwardBackwards"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""7f36954a-c209-44a3-bcce-a0f302d7ed27"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ForwardBackwards"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
                     ""name"": """",
-                    ""id"": ""aa07e3b6-0c59-42d7-bf0e-422c40a14c58"",
+                    ""id"": ""8b972af0-e1e8-421f-aae9-67d762aba00f"",
+                    ""path"": ""<Gamepad>/leftStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Controller"",
+                    ""action"": ""Look"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ea2d041c-f68d-4426-a28e-7b15c1e74ab2"",
                     ""path"": ""<Mouse>/delta"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard & Mouse"",
-                    ""action"": ""Mouse"",
+                    ""action"": ""Look"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -355,7 +399,7 @@ public partial class @KeybindActions: IInputActionCollection2, IDisposable
         m_Player_Shoot = m_Player.FindAction("Shoot", throwIfNotFound: true);
         m_Player_Zoom = m_Player.FindAction("Zoom", throwIfNotFound: true);
         m_Player_ForwardBackwards = m_Player.FindAction("ForwardBackwards", throwIfNotFound: true);
-        m_Player_Mouse = m_Player.FindAction("Mouse", throwIfNotFound: true);
+        m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -421,7 +465,7 @@ public partial class @KeybindActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Shoot;
     private readonly InputAction m_Player_Zoom;
     private readonly InputAction m_Player_ForwardBackwards;
-    private readonly InputAction m_Player_Mouse;
+    private readonly InputAction m_Player_Look;
     public struct PlayerActions
     {
         private @KeybindActions m_Wrapper;
@@ -430,7 +474,7 @@ public partial class @KeybindActions: IInputActionCollection2, IDisposable
         public InputAction @Shoot => m_Wrapper.m_Player_Shoot;
         public InputAction @Zoom => m_Wrapper.m_Player_Zoom;
         public InputAction @ForwardBackwards => m_Wrapper.m_Player_ForwardBackwards;
-        public InputAction @Mouse => m_Wrapper.m_Player_Mouse;
+        public InputAction @Look => m_Wrapper.m_Player_Look;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -452,9 +496,9 @@ public partial class @KeybindActions: IInputActionCollection2, IDisposable
             @ForwardBackwards.started += instance.OnForwardBackwards;
             @ForwardBackwards.performed += instance.OnForwardBackwards;
             @ForwardBackwards.canceled += instance.OnForwardBackwards;
-            @Mouse.started += instance.OnMouse;
-            @Mouse.performed += instance.OnMouse;
-            @Mouse.canceled += instance.OnMouse;
+            @Look.started += instance.OnLook;
+            @Look.performed += instance.OnLook;
+            @Look.canceled += instance.OnLook;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -471,9 +515,9 @@ public partial class @KeybindActions: IInputActionCollection2, IDisposable
             @ForwardBackwards.started -= instance.OnForwardBackwards;
             @ForwardBackwards.performed -= instance.OnForwardBackwards;
             @ForwardBackwards.canceled -= instance.OnForwardBackwards;
-            @Mouse.started -= instance.OnMouse;
-            @Mouse.performed -= instance.OnMouse;
-            @Mouse.canceled -= instance.OnMouse;
+            @Look.started -= instance.OnLook;
+            @Look.performed -= instance.OnLook;
+            @Look.canceled -= instance.OnLook;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -515,6 +559,6 @@ public partial class @KeybindActions: IInputActionCollection2, IDisposable
         void OnShoot(InputAction.CallbackContext context);
         void OnZoom(InputAction.CallbackContext context);
         void OnForwardBackwards(InputAction.CallbackContext context);
-        void OnMouse(InputAction.CallbackContext context);
+        void OnLook(InputAction.CallbackContext context);
     }
 }

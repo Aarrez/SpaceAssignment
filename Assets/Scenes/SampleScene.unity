@@ -198,9 +198,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_BindingMode: 3
   m_FollowOffset: {x: 0, y: 0, z: -8}
-  m_XDamping: 1
-  m_YDamping: 1
-  m_ZDamping: 1
+  m_XDamping: 0.1
+  m_YDamping: 0.1
+  m_ZDamping: 0.1
   m_AngularDampingMode: 0
   m_PitchDamping: 0
   m_YawDamping: 0
@@ -867,6 +867,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 1
+  maxValue: 0.5
 --- !u!114 &689254102
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -946,7 +947,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 0
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -1241,6 +1242,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac6905986dc404f478346897482e30a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxValue: 1
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0

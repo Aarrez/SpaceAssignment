@@ -1,18 +1,26 @@
+using CustomDebugger;
 using Cysharp.Threading.Tasks;
+using System.Collections;
+using System.Collections.Generic;
 using System.Threading;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
     [SerializeField] private float moveSpeed;
-
+    [SerializeField] private float maxValue = 1f;
+    private float time;
+    
     private GameObject pointer;
 
     private Vector3 moveDirection;
     private CharacterController controller;
 
     private readonly CancellationTokenSource cancelToken = new CancellationTokenSource();
+
+    private Rigidbody rb;
 
     private float moveCtx;
 
@@ -29,6 +37,7 @@ public class Player : MonoBehaviour
     {
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+        rb = GetComponent<Rigidbody>();
     }
     private void PlayerMovement(InputAction.CallbackContext ctx)
     {
@@ -37,23 +46,28 @@ public class Player : MonoBehaviour
 
     private void MouseMovement(InputAction.CallbackContext ctx)
     {
-        
+        if (!doOperation) return;
+        doOperation = false;
+        PlayerRotateToPointer().Forget();
+        new Debugger(moveDirection);
     }
-
-    private float time;
-    
-    private async void FixedUpdate()
-    {
-        moveDirection = pointer.transform.position - transform.position;
-        moveDirection = moveDirection.normalized;
+    private async UniTask PlayerRotateToPointer()
+    {  
         time = 0;
         var lookRotation = Quaternion.LookRotation(moveDirection);
-        while (transform.rotation != lookRotation)
+        while (time < maxValue)
         {
             transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, time);
             await UniTask.WaitForFixedUpdate();
-            time += 0.01f;
+            time += 0.1f;
         }
+        doOperation = true;
+    }
+    
+    private void FixedUpdate()
+    {
+        moveDirection = pointer.transform.position - transform.position;
+        moveDirection = moveDirection.normalized;
 
         controller.Move(moveDirection * (moveSpeed * moveCtx));
     }
