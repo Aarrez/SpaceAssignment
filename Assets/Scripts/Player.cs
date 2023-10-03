@@ -17,10 +17,14 @@ public class Player : MonoBehaviour
 
     private Vector3 moveDirection;
     private CharacterController controller;
+
+    private UniTask rotTask;
     
     private float moveCtx;
 
     private bool doOperation = true;
+    
+    
     private void Awake()
     {
         InputScript.MovementAction += PlayerMovement;
@@ -31,8 +35,9 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-        //Cursor.visible = false;
-        //Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        
     }
     private void PlayerMovement(InputAction.CallbackContext ctx)
     {
@@ -44,10 +49,11 @@ public class Player : MonoBehaviour
         if (!doOperation) return;
         doOperation = false;
         PlayerRotateToPointer().Forget();
-        new Debugger(moveDirection);
+        
     }
     private async UniTask PlayerRotateToPointer()
-    {  
+    {
+        new Debugger("Unitask is happening");
         time = 0;
         var lookRotation = Quaternion.LookRotation(moveDirection);
         while (time < maxValue)
@@ -57,6 +63,7 @@ public class Player : MonoBehaviour
             time += 0.1f;
         }
         doOperation = true;
+        new Debugger("at end");
     }
     
     private void LateUpdate()

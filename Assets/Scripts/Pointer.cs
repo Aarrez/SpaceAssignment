@@ -37,5 +37,4 @@ public class Pointer : MonoBehaviour
         doTask = true;
 
     }
-
 }
