@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 
 public class Pointer : MonoBehaviour
 {
-    [SerializeField] private float maxValue = 1f;
+    [SerializeField] private float maxValue = 2f;
     private Vector3 mousePos;
 
     private bool doTask = true;

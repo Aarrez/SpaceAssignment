@@ -17,11 +17,7 @@ public class Player : MonoBehaviour
 
     private Vector3 moveDirection;
     private CharacterController controller;
-
-    private readonly CancellationTokenSource cancelToken = new CancellationTokenSource();
-
-    private Rigidbody rb;
-
+    
     private float moveCtx;
 
     private bool doOperation = true;
@@ -35,9 +31,8 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
-        rb = GetComponent<Rigidbody>();
+        //Cursor.visible = false;
+        //Cursor.lockState = CursorLockMode.Locked;
     }
     private void PlayerMovement(InputAction.CallbackContext ctx)
     {
@@ -64,17 +59,12 @@ public class Player : MonoBehaviour
         doOperation = true;
     }
     
-    private void FixedUpdate()
+    private void LateUpdate()
     {
         moveDirection = pointer.transform.position - transform.position;
         moveDirection = moveDirection.normalized;
-
+        
         controller.Move(moveDirection * (moveSpeed * moveCtx));
-    }
-
-    private void OnDestroy()
-    {
-        cancelToken.Dispose();
     }
 
 

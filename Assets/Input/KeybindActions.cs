@@ -68,7 +68,7 @@ public partial class @KeybindActions: IInputActionCollection2, IDisposable
                     ""type"": ""Value"",
                     ""id"": ""da2d3ce8-1d9f-4c98-aa45-b0136fbd49e1"",
                     ""expectedControlType"": ""Vector2"",
-                    ""processors"": ""StickDeadzone,NormalizeVector2,ScaleVector2(x=2,y=2)"",
+                    ""processors"": ""NormalizeVector2"",
                     ""interactions"": """",
                     ""initialStateCheck"": true
                 }
