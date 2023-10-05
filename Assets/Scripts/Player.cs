@@ -53,7 +53,6 @@ public class Player : MonoBehaviour
     }
     private async UniTask PlayerRotateToPointer()
     {
-        new Debugger("Unitask is happening");
         time = 0;
         var lookRotation = Quaternion.LookRotation(moveDirection);
         while (time < maxValue)
@@ -63,10 +62,9 @@ public class Player : MonoBehaviour
             time += 0.1f;
         }
         doOperation = true;
-        new Debugger("at end");
     }
     
-    private void LateUpdate()
+    private void Update()
     {
         moveDirection = pointer.transform.position - transform.position;
         moveDirection = moveDirection.normalized;

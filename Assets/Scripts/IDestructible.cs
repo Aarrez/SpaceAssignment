@@ -1,3 +1,6 @@
+using Asteroid;
+using UnityEngine;
+
 namespace Asteroid
 {
     public interface IDestructible 
@@ -18,6 +21,18 @@ namespace Asteroid
         {
             
         }
+    }
+}
+
+[CreateAssetMenu(order = 0, menuName = "Asteriod")]
+public class Asteriod : ScriptableObject , IDestructible
+{
+
+    public uint Health { get; set; }
+
+    public void TakeDamage(uint i)
+    {
+        
     }
 }
 
