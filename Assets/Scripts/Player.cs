@@ -9,7 +9,7 @@ using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] private float moveSpeed;
+    [SerializeField] private float moveSpeed = 1f;
     [SerializeField] private float maxValue = 1f;
     private float time;
     
@@ -23,6 +23,8 @@ public class Player : MonoBehaviour
     private float moveCtx;
 
     private bool doOperation = true;
+
+    private InputDevice mouse;
     
     
     private void Awake()
@@ -35,13 +37,15 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.visible = false;
+        //Cursor.lockState = CursorLockMode.Locked;
+        mouse = Mouse.current;
         
     }
     private void PlayerMovement(InputAction.CallbackContext ctx)
     {
         moveCtx = ctx.ReadValue<float>();
+        
     }
 
     private void MouseMovement(InputAction.CallbackContext ctx)

@@ -7,23 +7,36 @@ using UnityEngine.InputSystem;
 public class Pointer : MonoBehaviour
 {
     [SerializeField] private float maxValue = 2f;
+    [SerializeField] private float radius = 1f;
+    private InputAction.CallbackContext context;
     private Vector3 mousePos;
-
+    private float time = 0f;
+    
     private bool doTask = true;
     private void Awake()
     {
-        InputScript.MouseMovement += GetMouseMovement;
+        InputScript.MouseMovement += ctx =>
+        {
+            context = ctx;
+            mousePos = (Vector3)ctx.ReadValue<Vector2>() + new Vector3(1f, 1f, 10f);
+            GetMouseMovement();
+        };
     }
-    private float time = 0;
-    private void GetMouseMovement(InputAction.CallbackContext ctx)
+    private void GetMouseMovement()
     {
-        Vector2 tempVector2 = ctx.ReadValue<Vector2>();
-        mousePos = new Vector3(tempVector2.x, tempVector2.y, 10f);
-        
-        if(!doTask) return;
-        doTask = false;
-        UpdatePointer().Forget();
+        transform.position = mousePos;
     }
+    
+    // private void GetMouseMovement(InputAction.CallbackContext ctx)
+    // {
+    //     Vector2 tempVector2 = ctx.ReadValue<Vector2>();
+    //     new Debugger(tempVector2);
+    //     mousePos = new Vector3(tempVector2.x, tempVector2.y, 10f);
+    //     transform.localPosition = mousePos;
+    //     // if(!doTask) return;
+    //     // doTask = false;
+    //     // UpdatePointer().Forget();
+    // }
 
     private async UniTaskVoid UpdatePointer()
     {
@@ -32,7 +45,7 @@ public class Pointer : MonoBehaviour
         {
             transform.localPosition = Vector3.Lerp(transform.localPosition,mousePos, time);
             time += 0.1f;
-            await UniTask.WaitForFixedUpdate();
+            await UniTask.Yield(PlayerLoopTiming.Update);
         }
         doTask = true;
 

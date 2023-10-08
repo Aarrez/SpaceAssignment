@@ -352,7 +352,7 @@ public partial class @KeybindActions: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""ea2d041c-f68d-4426-a28e-7b15c1e74ab2"",
-                    ""path"": ""<Mouse>/delta"",
+                    ""path"": ""<Mouse>/position"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard & Mouse"",
