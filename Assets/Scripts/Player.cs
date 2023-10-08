@@ -23,10 +23,6 @@ public class Player : MonoBehaviour
     private float moveCtx;
 
     private bool doOperation = true;
-
-    private InputDevice mouse;
-    
-    
     private void Awake()
     {
         InputScript.MovementAction += PlayerMovement;
@@ -34,18 +30,10 @@ public class Player : MonoBehaviour
         controller = GetComponent<CharacterController>();
         pointer = GameObject.FindWithTag("Pointer");
     }
-
-    private void Start()
-    {
-        //Cursor.visible = false;
-        //Cursor.lockState = CursorLockMode.Locked;
-        mouse = Mouse.current;
-        
-    }
+    
     private void PlayerMovement(InputAction.CallbackContext ctx)
     {
         moveCtx = ctx.ReadValue<float>();
-        
     }
 
     private void MouseMovement(InputAction.CallbackContext ctx)
