@@ -21,7 +21,7 @@ public class PlayerOne : MonoBehaviour
     private bool doOperation = true;
     private void Awake()
     {
-        InputScript.MovementAction += PlayerMovement;
+        InputScript.KMovementAction += PlayerMovement;
         InputScript.MouseMovement += MouseMovement;
         controller = GetComponent<CharacterController>();
         pointer = GameObject.FindWithTag("Pointer");

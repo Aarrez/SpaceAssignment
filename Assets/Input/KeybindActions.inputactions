@@ -24,9 +24,18 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "ForwardBackwards",
+                    "name": "KForwardBackwards",
                     "type": "Value",
                     "id": "a9a68b3f-9f01-4ab8-988a-7a6d9ac67cf0",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "CForwardBackwards",
+                    "type": "Value",
+                    "id": "528e5181-5f42-4b39-8667-d939e6f51cf6",
                     "expectedControlType": "Axis",
                     "processors": "",
                     "interactions": "",
@@ -43,7 +52,7 @@
                 },
                 {
                     "name": "ControllerLook",
-                    "type": "PassThrough",
+                    "type": "Value",
                     "id": "742b2ca7-d6ac-4e16-abb5-c18bb41039ba",
                     "expectedControlType": "Stick",
                     "processors": "",
@@ -103,7 +112,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "ForwardBackwards",
+                    "action": "KForwardBackwards",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
@@ -114,7 +123,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard & Mouse",
-                    "action": "ForwardBackwards",
+                    "action": "KForwardBackwards",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -125,40 +134,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard & Mouse",
-                    "action": "ForwardBackwards",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "1D Axis",
-                    "id": "487ddba2-37ad-4061-9ced-3d61dbc84ba1",
-                    "path": "1DAxis",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "ForwardBackwards",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "negative",
-                    "id": "7fbfa5cb-3013-4bf9-bb11-93a2d961299d",
-                    "path": "<Gamepad>/leftTrigger",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Controller",
-                    "action": "ForwardBackwards",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "positive",
-                    "id": "7f36954a-c209-44a3-bcce-a0f302d7ed27",
-                    "path": "<Gamepad>/rightTrigger",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Controller",
-                    "action": "ForwardBackwards",
+                    "action": "KForwardBackwards",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -178,11 +154,44 @@
                     "id": "3c75eac5-f0ce-4623-91a1-d10f7c403412",
                     "path": "<Gamepad>/leftStick",
                     "interactions": "",
-                    "processors": "",
+                    "processors": "StickDeadzone(min=0.05,max=1),ScaleVector2(x=3,y=3)",
                     "groups": "Controller",
                     "action": "ControllerLook",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "1D Axis",
+                    "id": "3316a531-a46b-4c65-8ea7-2ded1d9cb3e0",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CForwardBackwards",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "5a291620-5459-41a9-a344-3679b88d47db",
+                    "path": "<Gamepad>/leftTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Controller",
+                    "action": "CForwardBackwards",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "578f746d-c867-4482-9c94-b5c357092e07",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Controller",
+                    "action": "CForwardBackwards",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         }

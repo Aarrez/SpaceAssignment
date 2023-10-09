@@ -46,9 +46,18 @@ public partial class @KeybindActions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""ForwardBackwards"",
+                    ""name"": ""KForwardBackwards"",
                     ""type"": ""Value"",
                     ""id"": ""a9a68b3f-9f01-4ab8-988a-7a6d9ac67cf0"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""CForwardBackwards"",
+                    ""type"": ""Value"",
+                    ""id"": ""528e5181-5f42-4b39-8667-d939e6f51cf6"",
                     ""expectedControlType"": ""Axis"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -65,7 +74,7 @@ public partial class @KeybindActions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""ControllerLook"",
-                    ""type"": ""PassThrough"",
+                    ""type"": ""Value"",
                     ""id"": ""742b2ca7-d6ac-4e16-abb5-c18bb41039ba"",
                     ""expectedControlType"": ""Stick"",
                     ""processors"": """",
@@ -125,7 +134,7 @@ public partial class @KeybindActions: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""ForwardBackwards"",
+                    ""action"": ""KForwardBackwards"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
@@ -136,7 +145,7 @@ public partial class @KeybindActions: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard & Mouse"",
-                    ""action"": ""ForwardBackwards"",
+                    ""action"": ""KForwardBackwards"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -147,40 +156,7 @@ public partial class @KeybindActions: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard & Mouse"",
-                    ""action"": ""ForwardBackwards"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""1D Axis"",
-                    ""id"": ""487ddba2-37ad-4061-9ced-3d61dbc84ba1"",
-                    ""path"": ""1DAxis"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""ForwardBackwards"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""negative"",
-                    ""id"": ""7fbfa5cb-3013-4bf9-bb11-93a2d961299d"",
-                    ""path"": ""<Gamepad>/leftTrigger"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Controller"",
-                    ""action"": ""ForwardBackwards"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""positive"",
-                    ""id"": ""7f36954a-c209-44a3-bcce-a0f302d7ed27"",
-                    ""path"": ""<Gamepad>/rightTrigger"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Controller"",
-                    ""action"": ""ForwardBackwards"",
+                    ""action"": ""KForwardBackwards"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -200,11 +176,44 @@ public partial class @KeybindActions: IInputActionCollection2, IDisposable
                     ""id"": ""3c75eac5-f0ce-4623-91a1-d10f7c403412"",
                     ""path"": ""<Gamepad>/leftStick"",
                     ""interactions"": """",
-                    ""processors"": """",
+                    ""processors"": ""StickDeadzone(min=0.05,max=1),ScaleVector2(x=3,y=3)"",
                     ""groups"": ""Controller"",
                     ""action"": ""ControllerLook"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""3316a531-a46b-4c65-8ea7-2ded1d9cb3e0"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CForwardBackwards"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""5a291620-5459-41a9-a344-3679b88d47db"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Controller"",
+                    ""action"": ""CForwardBackwards"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""578f746d-c867-4482-9c94-b5c357092e07"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Controller"",
+                    ""action"": ""CForwardBackwards"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         }
@@ -243,7 +252,8 @@ public partial class @KeybindActions: IInputActionCollection2, IDisposable
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Shoot = m_Player.FindAction("Shoot", throwIfNotFound: true);
         m_Player_Zoom = m_Player.FindAction("Zoom", throwIfNotFound: true);
-        m_Player_ForwardBackwards = m_Player.FindAction("ForwardBackwards", throwIfNotFound: true);
+        m_Player_KForwardBackwards = m_Player.FindAction("KForwardBackwards", throwIfNotFound: true);
+        m_Player_CForwardBackwards = m_Player.FindAction("CForwardBackwards", throwIfNotFound: true);
         m_Player_MouseLook = m_Player.FindAction("MouseLook", throwIfNotFound: true);
         m_Player_ControllerLook = m_Player.FindAction("ControllerLook", throwIfNotFound: true);
     }
@@ -309,7 +319,8 @@ public partial class @KeybindActions: IInputActionCollection2, IDisposable
     private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
     private readonly InputAction m_Player_Shoot;
     private readonly InputAction m_Player_Zoom;
-    private readonly InputAction m_Player_ForwardBackwards;
+    private readonly InputAction m_Player_KForwardBackwards;
+    private readonly InputAction m_Player_CForwardBackwards;
     private readonly InputAction m_Player_MouseLook;
     private readonly InputAction m_Player_ControllerLook;
     public struct PlayerActions
@@ -318,7 +329,8 @@ public partial class @KeybindActions: IInputActionCollection2, IDisposable
         public PlayerActions(@KeybindActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @Shoot => m_Wrapper.m_Player_Shoot;
         public InputAction @Zoom => m_Wrapper.m_Player_Zoom;
-        public InputAction @ForwardBackwards => m_Wrapper.m_Player_ForwardBackwards;
+        public InputAction @KForwardBackwards => m_Wrapper.m_Player_KForwardBackwards;
+        public InputAction @CForwardBackwards => m_Wrapper.m_Player_CForwardBackwards;
         public InputAction @MouseLook => m_Wrapper.m_Player_MouseLook;
         public InputAction @ControllerLook => m_Wrapper.m_Player_ControllerLook;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
@@ -336,9 +348,12 @@ public partial class @KeybindActions: IInputActionCollection2, IDisposable
             @Zoom.started += instance.OnZoom;
             @Zoom.performed += instance.OnZoom;
             @Zoom.canceled += instance.OnZoom;
-            @ForwardBackwards.started += instance.OnForwardBackwards;
-            @ForwardBackwards.performed += instance.OnForwardBackwards;
-            @ForwardBackwards.canceled += instance.OnForwardBackwards;
+            @KForwardBackwards.started += instance.OnKForwardBackwards;
+            @KForwardBackwards.performed += instance.OnKForwardBackwards;
+            @KForwardBackwards.canceled += instance.OnKForwardBackwards;
+            @CForwardBackwards.started += instance.OnCForwardBackwards;
+            @CForwardBackwards.performed += instance.OnCForwardBackwards;
+            @CForwardBackwards.canceled += instance.OnCForwardBackwards;
             @MouseLook.started += instance.OnMouseLook;
             @MouseLook.performed += instance.OnMouseLook;
             @MouseLook.canceled += instance.OnMouseLook;
@@ -355,9 +370,12 @@ public partial class @KeybindActions: IInputActionCollection2, IDisposable
             @Zoom.started -= instance.OnZoom;
             @Zoom.performed -= instance.OnZoom;
             @Zoom.canceled -= instance.OnZoom;
-            @ForwardBackwards.started -= instance.OnForwardBackwards;
-            @ForwardBackwards.performed -= instance.OnForwardBackwards;
-            @ForwardBackwards.canceled -= instance.OnForwardBackwards;
+            @KForwardBackwards.started -= instance.OnKForwardBackwards;
+            @KForwardBackwards.performed -= instance.OnKForwardBackwards;
+            @KForwardBackwards.canceled -= instance.OnKForwardBackwards;
+            @CForwardBackwards.started -= instance.OnCForwardBackwards;
+            @CForwardBackwards.performed -= instance.OnCForwardBackwards;
+            @CForwardBackwards.canceled -= instance.OnCForwardBackwards;
             @MouseLook.started -= instance.OnMouseLook;
             @MouseLook.performed -= instance.OnMouseLook;
             @MouseLook.canceled -= instance.OnMouseLook;
@@ -403,7 +421,8 @@ public partial class @KeybindActions: IInputActionCollection2, IDisposable
     {
         void OnShoot(InputAction.CallbackContext context);
         void OnZoom(InputAction.CallbackContext context);
-        void OnForwardBackwards(InputAction.CallbackContext context);
+        void OnKForwardBackwards(InputAction.CallbackContext context);
+        void OnCForwardBackwards(InputAction.CallbackContext context);
         void OnMouseLook(InputAction.CallbackContext context);
         void OnControllerLook(InputAction.CallbackContext context);
     }

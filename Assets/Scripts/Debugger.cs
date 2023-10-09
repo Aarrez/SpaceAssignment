@@ -8,14 +8,10 @@ namespace CustomDebugger
 #if UNITY_EDITOR
         public Debugger(string log)
         {
-
             Debug.Log(log);
-
         }
         public Debugger(int log)
         {
-            
-
             Debug.Log(log);
         }
         
@@ -32,7 +28,11 @@ namespace CustomDebugger
         public Debugger(Vector3 log)
         {
             Debug.Log(log);
+        }
 
+        public Debugger(bool log)
+        {
+            Debug.Log(log);
         }
 #endif
         
