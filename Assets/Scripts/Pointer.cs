@@ -10,9 +10,9 @@ public class Pointer : MonoBehaviour
     {
         InputScript.MouseMovement += ctx =>
         {
-            mousePos = (Vector3)ctx.ReadValue<Vector2>() + new Vector3(0f, 0f, 10f);
+            Debug.Log("happening");
+            mousePos = (Vector3)ctx.ReadValue<Vector2>() + new Vector3(0f, 0f, distance);
             mousePos = Camera.main.ScreenToWorldPoint(mousePos);
-            mousePos.z = distance;
             GetMouseMovement();
         };
     }

@@ -28,15 +28,6 @@ public partial class @KeybindActions: IInputActionCollection2, IDisposable
             ""id"": ""d89e9d18-4aac-453d-a629-1cf34343534c"",
             ""actions"": [
                 {
-                    ""name"": ""Movement"",
-                    ""type"": ""Value"",
-                    ""id"": ""d05c860a-db3d-4115-aefc-e5467b33e25c"",
-                    ""expectedControlType"": ""Vector2"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
-                },
-                {
                     ""name"": ""Shoot"",
                     ""type"": ""Button"",
                     ""id"": ""2c036601-840f-481f-a341-abe936d07aef"",
@@ -64,170 +55,25 @@ public partial class @KeybindActions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Look"",
+                    ""name"": ""MouseLook"",
                     ""type"": ""Value"",
                     ""id"": ""da2d3ce8-1d9f-4c98-aa45-b0136fbd49e1"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""ControllerLook"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""742b2ca7-d6ac-4e16-abb5-c18bb41039ba"",
+                    ""expectedControlType"": ""Stick"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
-                {
-                    ""name"": ""Keyboard WASD"",
-                    ""id"": ""2d962474-e9af-4fbb-a12a-be716c8ce716"",
-                    ""path"": ""2DVector"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Movement"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""Keyboard WASD"",
-                    ""id"": ""3be9a57f-ee53-447f-96e6-5ac53dc674a1"",
-                    ""path"": ""2DVector"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Movement"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""up"",
-                    ""id"": ""f8e4181d-7659-49e1-af77-cadd0505bcf4"",
-                    ""path"": ""<Keyboard>/w"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard & Mouse"",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""down"",
-                    ""id"": ""9a487797-7bcd-4a25-8909-005c969d7af8"",
-                    ""path"": ""<Keyboard>/s"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard & Mouse"",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""left"",
-                    ""id"": ""1b7b6fef-84e4-44ce-9bba-83ab08de674a"",
-                    ""path"": ""<Keyboard>/d"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard & Mouse"",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""right"",
-                    ""id"": ""6631f6a5-c529-44b3-9c81-fbe29ff75056"",
-                    ""path"": ""<Keyboard>/a"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard & Mouse"",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""Keyboard ArrowKeys"",
-                    ""id"": ""b4aacdc5-8d35-4a34-b40a-8cd3d570d929"",
-                    ""path"": ""2DVector"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Movement"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""up"",
-                    ""id"": ""8a680876-4c92-4d9b-b7e1-3e8e5d938953"",
-                    ""path"": ""<Keyboard>/upArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard & Mouse"",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""down"",
-                    ""id"": ""c265a217-2f48-49de-a997-5a627ffd0322"",
-                    ""path"": ""<Keyboard>/downArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard & Mouse"",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""left"",
-                    ""id"": ""b7912dfc-e43e-40b7-bfe9-b3e3f4a6257d"",
-                    ""path"": ""<Keyboard>/leftArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard & Mouse"",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""right"",
-                    ""id"": ""9e5de5c0-4913-4226-b16b-6805984287c3"",
-                    ""path"": ""<Keyboard>/rightArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard & Mouse"",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""Two Modifiers"",
-                    ""id"": ""ef421b95-1f8b-4af1-b730-55398ab73587"",
-                    ""path"": ""TwoModifiers"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Movement"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""f562ed5d-8a67-4f08-95d0-2e5173a3c262"",
-                    ""path"": ""<Gamepad>/dpad"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Controller"",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""76aa39fd-426b-472a-82bb-5f59adcce14b"",
-                    ""path"": ""<Gamepad>/leftStick"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Controller"",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
                 {
                     ""name"": """",
                     ""id"": ""0a053dbd-5436-45ce-9aac-b5f612819028"",
@@ -322,7 +168,7 @@ public partial class @KeybindActions: IInputActionCollection2, IDisposable
                     ""path"": ""<Gamepad>/leftTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Controller"",
                     ""action"": ""ForwardBackwards"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -333,7 +179,7 @@ public partial class @KeybindActions: IInputActionCollection2, IDisposable
                     ""path"": ""<Gamepad>/rightTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Controller"",
                     ""action"": ""ForwardBackwards"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -341,22 +187,22 @@ public partial class @KeybindActions: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""8b972af0-e1e8-421f-aae9-67d762aba00f"",
-                    ""path"": ""<Gamepad>/leftStick"",
+                    ""path"": ""<Mouse>/position"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Controller"",
-                    ""action"": ""Look"",
+                    ""groups"": ""Keyboard & Mouse"",
+                    ""action"": ""MouseLook"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""ea2d041c-f68d-4426-a28e-7b15c1e74ab2"",
-                    ""path"": ""<Mouse>/position"",
+                    ""id"": ""3c75eac5-f0ce-4623-91a1-d10f7c403412"",
+                    ""path"": ""<Gamepad>/leftStick"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard & Mouse"",
-                    ""action"": ""Look"",
+                    ""groups"": ""Controller"",
+                    ""action"": ""ControllerLook"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -395,11 +241,11 @@ public partial class @KeybindActions: IInputActionCollection2, IDisposable
 }");
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
-        m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
         m_Player_Shoot = m_Player.FindAction("Shoot", throwIfNotFound: true);
         m_Player_Zoom = m_Player.FindAction("Zoom", throwIfNotFound: true);
         m_Player_ForwardBackwards = m_Player.FindAction("ForwardBackwards", throwIfNotFound: true);
-        m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
+        m_Player_MouseLook = m_Player.FindAction("MouseLook", throwIfNotFound: true);
+        m_Player_ControllerLook = m_Player.FindAction("ControllerLook", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -461,20 +307,20 @@ public partial class @KeybindActions: IInputActionCollection2, IDisposable
     // Player
     private readonly InputActionMap m_Player;
     private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
-    private readonly InputAction m_Player_Movement;
     private readonly InputAction m_Player_Shoot;
     private readonly InputAction m_Player_Zoom;
     private readonly InputAction m_Player_ForwardBackwards;
-    private readonly InputAction m_Player_Look;
+    private readonly InputAction m_Player_MouseLook;
+    private readonly InputAction m_Player_ControllerLook;
     public struct PlayerActions
     {
         private @KeybindActions m_Wrapper;
         public PlayerActions(@KeybindActions wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Movement => m_Wrapper.m_Player_Movement;
         public InputAction @Shoot => m_Wrapper.m_Player_Shoot;
         public InputAction @Zoom => m_Wrapper.m_Player_Zoom;
         public InputAction @ForwardBackwards => m_Wrapper.m_Player_ForwardBackwards;
-        public InputAction @Look => m_Wrapper.m_Player_Look;
+        public InputAction @MouseLook => m_Wrapper.m_Player_MouseLook;
+        public InputAction @ControllerLook => m_Wrapper.m_Player_ControllerLook;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -484,9 +330,6 @@ public partial class @KeybindActions: IInputActionCollection2, IDisposable
         {
             if (instance == null || m_Wrapper.m_PlayerActionsCallbackInterfaces.Contains(instance)) return;
             m_Wrapper.m_PlayerActionsCallbackInterfaces.Add(instance);
-            @Movement.started += instance.OnMovement;
-            @Movement.performed += instance.OnMovement;
-            @Movement.canceled += instance.OnMovement;
             @Shoot.started += instance.OnShoot;
             @Shoot.performed += instance.OnShoot;
             @Shoot.canceled += instance.OnShoot;
@@ -496,16 +339,16 @@ public partial class @KeybindActions: IInputActionCollection2, IDisposable
             @ForwardBackwards.started += instance.OnForwardBackwards;
             @ForwardBackwards.performed += instance.OnForwardBackwards;
             @ForwardBackwards.canceled += instance.OnForwardBackwards;
-            @Look.started += instance.OnLook;
-            @Look.performed += instance.OnLook;
-            @Look.canceled += instance.OnLook;
+            @MouseLook.started += instance.OnMouseLook;
+            @MouseLook.performed += instance.OnMouseLook;
+            @MouseLook.canceled += instance.OnMouseLook;
+            @ControllerLook.started += instance.OnControllerLook;
+            @ControllerLook.performed += instance.OnControllerLook;
+            @ControllerLook.canceled += instance.OnControllerLook;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
         {
-            @Movement.started -= instance.OnMovement;
-            @Movement.performed -= instance.OnMovement;
-            @Movement.canceled -= instance.OnMovement;
             @Shoot.started -= instance.OnShoot;
             @Shoot.performed -= instance.OnShoot;
             @Shoot.canceled -= instance.OnShoot;
@@ -515,9 +358,12 @@ public partial class @KeybindActions: IInputActionCollection2, IDisposable
             @ForwardBackwards.started -= instance.OnForwardBackwards;
             @ForwardBackwards.performed -= instance.OnForwardBackwards;
             @ForwardBackwards.canceled -= instance.OnForwardBackwards;
-            @Look.started -= instance.OnLook;
-            @Look.performed -= instance.OnLook;
-            @Look.canceled -= instance.OnLook;
+            @MouseLook.started -= instance.OnMouseLook;
+            @MouseLook.performed -= instance.OnMouseLook;
+            @MouseLook.canceled -= instance.OnMouseLook;
+            @ControllerLook.started -= instance.OnControllerLook;
+            @ControllerLook.performed -= instance.OnControllerLook;
+            @ControllerLook.canceled -= instance.OnControllerLook;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -555,10 +401,10 @@ public partial class @KeybindActions: IInputActionCollection2, IDisposable
     }
     public interface IPlayerActions
     {
-        void OnMovement(InputAction.CallbackContext context);
         void OnShoot(InputAction.CallbackContext context);
         void OnZoom(InputAction.CallbackContext context);
         void OnForwardBackwards(InputAction.CallbackContext context);
-        void OnLook(InputAction.CallbackContext context);
+        void OnMouseLook(InputAction.CallbackContext context);
+        void OnControllerLook(InputAction.CallbackContext context);
     }
 }

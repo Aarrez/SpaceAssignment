@@ -25,11 +25,12 @@ public class InputScript : MonoBehaviour
             MovementAction?.Invoke(ctx);
         };
 
-        keybindActions.Player.Look.performed += ctx =>
+        keybindActions.Player.MouseLook.performed += ctx =>
             MouseMovement?.Invoke(ctx);
         
-         // keybindActions.Player.Look.canceled += ctx =>
-         //     MouseMovement?.Invoke(ctx);
+        
+        keybindActions.Player.MouseLook.canceled += ctx => 
+              MouseMovement?.Invoke(ctx);
         
         keybindActions.Enable();
     }

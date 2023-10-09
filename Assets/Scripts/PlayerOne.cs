@@ -1,13 +1,9 @@
 using CustomDebugger;
 using Cysharp.Threading.Tasks;
-using System.Collections;
-using System.Collections.Generic;
-using System.Threading;
-using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Player : MonoBehaviour
+public class PlayerOne : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 1f;
     [SerializeField] private float maxValue = 1f;
@@ -45,8 +41,8 @@ public class Player : MonoBehaviour
     }
     private async UniTask PlayerRotateToPointer()
     {
+        Quaternion lookRotation = Quaternion.LookRotation(moveDirection);
         time = 0;
-        var lookRotation = Quaternion.LookRotation(moveDirection);
         while (time < maxValue)
         {
             transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, time);
@@ -63,6 +59,4 @@ public class Player : MonoBehaviour
         
         controller.Move(moveDirection * (moveSpeed * moveCtx));
     }
-
-
 }
