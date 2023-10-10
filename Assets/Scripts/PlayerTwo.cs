@@ -5,6 +5,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerTwo : MonoBehaviour
 {
+    [SerializeField] private Projectile projectile;
+    
     [SerializeField] private float moveSpeed = 1f;
     [SerializeField] private float maxValue = 0.5f;
     private float time;
@@ -19,6 +21,7 @@ public class PlayerTwo : MonoBehaviour
     private float moveCtx;
 
     private bool doOperation = true;
+    private bool contextBool = true;
 
     private InputAction.CallbackContext context;
     private void Awake()
@@ -27,11 +30,19 @@ public class PlayerTwo : MonoBehaviour
         InputScript.ControllerMovement += ctx =>
         {
             context = ctx;
+            contextBool = context.canceled;
             RotationMovement();
         };
+
+        InputScript.CAction += ShootProjectile;
             
         controller = GetComponent<CharacterController>();
         pointer = GameObject.FindWithTag("Pointer");
+    }
+
+    private void ShootProjectile()
+    {
+        Instantiate(projectile.gameObject, transform.position, transform.rotation);
     }
     
     private void PlayerMovement(InputAction.CallbackContext ctx)
@@ -45,12 +56,11 @@ public class PlayerTwo : MonoBehaviour
         doOperation = false;
         StartStopRotation().Forget();
     }
-    private async UniTask StartStopRotation()
+    private async UniTaskVoid StartStopRotation()
     {
-        while (!context.canceled)
+        while (!contextBool)
         {
-            var temp = PlayerRotateToPointer();
-            await temp;
+            await PlayerRotateToPointer();
         }
     }
     private async UniTask PlayerRotateToPointer()

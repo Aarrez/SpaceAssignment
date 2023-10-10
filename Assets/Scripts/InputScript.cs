@@ -11,6 +11,8 @@ public class InputScript : MonoBehaviour
     public static UnityAction<InputAction.CallbackContext> CMovementAction;
     public static UnityAction<InputAction.CallbackContext> MouseMovement;
     public static UnityAction<InputAction.CallbackContext> ControllerMovement;
+    public static UnityAction KAction, CAction;
+    
     private void Awake()
     {
         keybindActions = new KeybindActions();
@@ -19,32 +21,41 @@ public class InputScript : MonoBehaviour
     private void OnEnable()
     {
         //Sending keyboard shift and control context
-        keybindActions.Player.KForwardBackwards.performed += ctx =>
+        keybindActions.PlayerOne.KForwardBackwards.performed += ctx =>
             KMovementAction?.Invoke(ctx);
         
-        keybindActions.Player.KForwardBackwards.canceled += ctx =>
-            KMovementAction?.Invoke(ctx);
-        
-        //Sending controller left and right trigger context
-        keybindActions.Player.KForwardBackwards.performed += ctx =>
-            KMovementAction?.Invoke(ctx);
-        
-        keybindActions.Player.KForwardBackwards.canceled += ctx =>
+        keybindActions.PlayerOne.KForwardBackwards.canceled += ctx =>
             KMovementAction?.Invoke(ctx);
         
         //Sending mouse position context
-        keybindActions.Player.MouseLook.performed += ctx =>
+        keybindActions.PlayerOne.MouseLook.performed += ctx =>
             MouseMovement?.Invoke(ctx);
         
-        keybindActions.Player.MouseLook.canceled += ctx => 
+        keybindActions.PlayerOne.MouseLook.canceled += ctx => 
               MouseMovement?.Invoke(ctx);
+        
+        //Invoke mouse event for shooting
+        keybindActions.PlayerOne.Shoot.performed += ctx =>
+            KAction?.Invoke();
+        
+        /* ----------------------------------------------------------------------- */
+        //Sending controller left and right trigger context
+        keybindActions.PlayerTwo.CForwardBackwards.performed += ctx =>
+            CMovementAction?.Invoke(ctx);
+        
+        keybindActions.PlayerTwo.CForwardBackwards.canceled += ctx =>
+            CMovementAction?.Invoke(ctx);
 
         //Sending controller stick context
-        keybindActions.Player.ControllerLook.performed += ctx => 
+        keybindActions.PlayerTwo.ControllerLook.performed += ctx => 
             ControllerMovement?.Invoke(ctx);
         
-        keybindActions.Player.ControllerLook.canceled += ctx => 
+        keybindActions.PlayerTwo.ControllerLook.canceled += ctx => 
             ControllerMovement?.Invoke(ctx);
+        
+        //Invoke controller event for Shooting
+        keybindActions.PlayerTwo.Shoot.performed += ctx =>
+            CAction?.Invoke();
         
         keybindActions.Enable();
     }

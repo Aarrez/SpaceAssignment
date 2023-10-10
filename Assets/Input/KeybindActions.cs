@@ -24,7 +24,7 @@ public partial class @KeybindActions: IInputActionCollection2, IDisposable
     ""name"": ""KeybindActions"",
     ""maps"": [
         {
-            ""name"": ""Player"",
+            ""name"": ""PlayerOne"",
             ""id"": ""d89e9d18-4aac-453d-a629-1cf34343534c"",
             ""actions"": [
                 {
@@ -55,15 +55,6 @@ public partial class @KeybindActions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""CForwardBackwards"",
-                    ""type"": ""Value"",
-                    ""id"": ""528e5181-5f42-4b39-8667-d939e6f51cf6"",
-                    ""expectedControlType"": ""Axis"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
-                },
-                {
                     ""name"": ""MouseLook"",
                     ""type"": ""Value"",
                     ""id"": ""da2d3ce8-1d9f-4c98-aa45-b0136fbd49e1"",
@@ -71,29 +62,9 @@ public partial class @KeybindActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
-                },
-                {
-                    ""name"": ""ControllerLook"",
-                    ""type"": ""Value"",
-                    ""id"": ""742b2ca7-d6ac-4e16-abb5-c18bb41039ba"",
-                    ""expectedControlType"": ""Stick"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
-                {
-                    ""name"": """",
-                    ""id"": ""0a053dbd-5436-45ce-9aac-b5f612819028"",
-                    ""path"": ""<Gamepad>/rightTrigger"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Controller"",
-                    ""action"": ""Shoot"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
                 {
                     ""name"": """",
                     ""id"": ""3c7227ee-d05e-4d9d-84e6-5ee3122ad63f"",
@@ -170,21 +141,45 @@ public partial class @KeybindActions: IInputActionCollection2, IDisposable
                     ""action"": ""MouseLook"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""PlayerTwo"",
+            ""id"": ""6808e7b9-b088-4b06-82cb-b0caa507dc03"",
+            ""actions"": [
+                {
+                    ""name"": ""CForwardBackwards"",
+                    ""type"": ""Value"",
+                    ""id"": ""552697ed-3d80-4628-bc7c-050e2ab979da"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 },
                 {
-                    ""name"": """",
-                    ""id"": ""3c75eac5-f0ce-4623-91a1-d10f7c403412"",
-                    ""path"": ""<Gamepad>/leftStick"",
+                    ""name"": ""ControllerLook"",
+                    ""type"": ""Value"",
+                    ""id"": ""a5f005e5-5bd8-4447-85f7-7aefdc29cff0"",
+                    ""expectedControlType"": ""Stick"",
+                    ""processors"": """",
                     ""interactions"": """",
-                    ""processors"": ""StickDeadzone(min=0.05,max=1),ScaleVector2(x=3,y=3)"",
-                    ""groups"": ""Controller"",
-                    ""action"": ""ControllerLook"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
+                    ""initialStateCheck"": true
                 },
+                {
+                    ""name"": ""Shoot"",
+                    ""type"": ""Button"",
+                    ""id"": ""71266ed3-0129-476b-9cdb-36edddaf8069"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
                 {
                     ""name"": ""1D Axis"",
-                    ""id"": ""3316a531-a46b-4c65-8ea7-2ded1d9cb3e0"",
+                    ""id"": ""26542fea-71fd-40ec-a18b-8e780897f4e7"",
                     ""path"": ""1DAxis"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -195,7 +190,7 @@ public partial class @KeybindActions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""negative"",
-                    ""id"": ""5a291620-5459-41a9-a344-3679b88d47db"",
+                    ""id"": ""790733fe-d15d-4392-b999-c071f67de00f"",
                     ""path"": ""<Gamepad>/leftTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -206,7 +201,7 @@ public partial class @KeybindActions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""positive"",
-                    ""id"": ""578f746d-c867-4482-9c94-b5c357092e07"",
+                    ""id"": ""ddfa39d5-5f22-49f4-95cc-22ea16767f94"",
                     ""path"": ""<Gamepad>/rightTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -214,6 +209,28 @@ public partial class @KeybindActions: IInputActionCollection2, IDisposable
                     ""action"": ""CForwardBackwards"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6c1d0b2d-0888-4473-bf12-5047dff73e38"",
+                    ""path"": ""<Gamepad>/leftStick"",
+                    ""interactions"": """",
+                    ""processors"": ""StickDeadzone(min=0.05,max=1),ScaleVector2(x=3,y=3)"",
+                    ""groups"": ""Controller"",
+                    ""action"": ""ControllerLook"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9c25130f-5ecb-49d6-8047-722d22b95d91"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Shoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -248,14 +265,17 @@ public partial class @KeybindActions: IInputActionCollection2, IDisposable
         }
     ]
 }");
-        // Player
-        m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
-        m_Player_Shoot = m_Player.FindAction("Shoot", throwIfNotFound: true);
-        m_Player_Zoom = m_Player.FindAction("Zoom", throwIfNotFound: true);
-        m_Player_KForwardBackwards = m_Player.FindAction("KForwardBackwards", throwIfNotFound: true);
-        m_Player_CForwardBackwards = m_Player.FindAction("CForwardBackwards", throwIfNotFound: true);
-        m_Player_MouseLook = m_Player.FindAction("MouseLook", throwIfNotFound: true);
-        m_Player_ControllerLook = m_Player.FindAction("ControllerLook", throwIfNotFound: true);
+        // PlayerOne
+        m_PlayerOne = asset.FindActionMap("PlayerOne", throwIfNotFound: true);
+        m_PlayerOne_Shoot = m_PlayerOne.FindAction("Shoot", throwIfNotFound: true);
+        m_PlayerOne_Zoom = m_PlayerOne.FindAction("Zoom", throwIfNotFound: true);
+        m_PlayerOne_KForwardBackwards = m_PlayerOne.FindAction("KForwardBackwards", throwIfNotFound: true);
+        m_PlayerOne_MouseLook = m_PlayerOne.FindAction("MouseLook", throwIfNotFound: true);
+        // PlayerTwo
+        m_PlayerTwo = asset.FindActionMap("PlayerTwo", throwIfNotFound: true);
+        m_PlayerTwo_CForwardBackwards = m_PlayerTwo.FindAction("CForwardBackwards", throwIfNotFound: true);
+        m_PlayerTwo_ControllerLook = m_PlayerTwo.FindAction("ControllerLook", throwIfNotFound: true);
+        m_PlayerTwo_Shoot = m_PlayerTwo.FindAction("Shoot", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -314,34 +334,30 @@ public partial class @KeybindActions: IInputActionCollection2, IDisposable
         return asset.FindBinding(bindingMask, out action);
     }
 
-    // Player
-    private readonly InputActionMap m_Player;
-    private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
-    private readonly InputAction m_Player_Shoot;
-    private readonly InputAction m_Player_Zoom;
-    private readonly InputAction m_Player_KForwardBackwards;
-    private readonly InputAction m_Player_CForwardBackwards;
-    private readonly InputAction m_Player_MouseLook;
-    private readonly InputAction m_Player_ControllerLook;
-    public struct PlayerActions
+    // PlayerOne
+    private readonly InputActionMap m_PlayerOne;
+    private List<IPlayerOneActions> m_PlayerOneActionsCallbackInterfaces = new List<IPlayerOneActions>();
+    private readonly InputAction m_PlayerOne_Shoot;
+    private readonly InputAction m_PlayerOne_Zoom;
+    private readonly InputAction m_PlayerOne_KForwardBackwards;
+    private readonly InputAction m_PlayerOne_MouseLook;
+    public struct PlayerOneActions
     {
         private @KeybindActions m_Wrapper;
-        public PlayerActions(@KeybindActions wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Shoot => m_Wrapper.m_Player_Shoot;
-        public InputAction @Zoom => m_Wrapper.m_Player_Zoom;
-        public InputAction @KForwardBackwards => m_Wrapper.m_Player_KForwardBackwards;
-        public InputAction @CForwardBackwards => m_Wrapper.m_Player_CForwardBackwards;
-        public InputAction @MouseLook => m_Wrapper.m_Player_MouseLook;
-        public InputAction @ControllerLook => m_Wrapper.m_Player_ControllerLook;
-        public InputActionMap Get() { return m_Wrapper.m_Player; }
+        public PlayerOneActions(@KeybindActions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Shoot => m_Wrapper.m_PlayerOne_Shoot;
+        public InputAction @Zoom => m_Wrapper.m_PlayerOne_Zoom;
+        public InputAction @KForwardBackwards => m_Wrapper.m_PlayerOne_KForwardBackwards;
+        public InputAction @MouseLook => m_Wrapper.m_PlayerOne_MouseLook;
+        public InputActionMap Get() { return m_Wrapper.m_PlayerOne; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(PlayerActions set) { return set.Get(); }
-        public void AddCallbacks(IPlayerActions instance)
+        public static implicit operator InputActionMap(PlayerOneActions set) { return set.Get(); }
+        public void AddCallbacks(IPlayerOneActions instance)
         {
-            if (instance == null || m_Wrapper.m_PlayerActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m_PlayerActionsCallbackInterfaces.Add(instance);
+            if (instance == null || m_Wrapper.m_PlayerOneActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_PlayerOneActionsCallbackInterfaces.Add(instance);
             @Shoot.started += instance.OnShoot;
             @Shoot.performed += instance.OnShoot;
             @Shoot.canceled += instance.OnShoot;
@@ -351,18 +367,12 @@ public partial class @KeybindActions: IInputActionCollection2, IDisposable
             @KForwardBackwards.started += instance.OnKForwardBackwards;
             @KForwardBackwards.performed += instance.OnKForwardBackwards;
             @KForwardBackwards.canceled += instance.OnKForwardBackwards;
-            @CForwardBackwards.started += instance.OnCForwardBackwards;
-            @CForwardBackwards.performed += instance.OnCForwardBackwards;
-            @CForwardBackwards.canceled += instance.OnCForwardBackwards;
             @MouseLook.started += instance.OnMouseLook;
             @MouseLook.performed += instance.OnMouseLook;
             @MouseLook.canceled += instance.OnMouseLook;
-            @ControllerLook.started += instance.OnControllerLook;
-            @ControllerLook.performed += instance.OnControllerLook;
-            @ControllerLook.canceled += instance.OnControllerLook;
         }
 
-        private void UnregisterCallbacks(IPlayerActions instance)
+        private void UnregisterCallbacks(IPlayerOneActions instance)
         {
             @Shoot.started -= instance.OnShoot;
             @Shoot.performed -= instance.OnShoot;
@@ -373,32 +383,88 @@ public partial class @KeybindActions: IInputActionCollection2, IDisposable
             @KForwardBackwards.started -= instance.OnKForwardBackwards;
             @KForwardBackwards.performed -= instance.OnKForwardBackwards;
             @KForwardBackwards.canceled -= instance.OnKForwardBackwards;
-            @CForwardBackwards.started -= instance.OnCForwardBackwards;
-            @CForwardBackwards.performed -= instance.OnCForwardBackwards;
-            @CForwardBackwards.canceled -= instance.OnCForwardBackwards;
             @MouseLook.started -= instance.OnMouseLook;
             @MouseLook.performed -= instance.OnMouseLook;
             @MouseLook.canceled -= instance.OnMouseLook;
-            @ControllerLook.started -= instance.OnControllerLook;
-            @ControllerLook.performed -= instance.OnControllerLook;
-            @ControllerLook.canceled -= instance.OnControllerLook;
         }
 
-        public void RemoveCallbacks(IPlayerActions instance)
+        public void RemoveCallbacks(IPlayerOneActions instance)
         {
-            if (m_Wrapper.m_PlayerActionsCallbackInterfaces.Remove(instance))
+            if (m_Wrapper.m_PlayerOneActionsCallbackInterfaces.Remove(instance))
                 UnregisterCallbacks(instance);
         }
 
-        public void SetCallbacks(IPlayerActions instance)
+        public void SetCallbacks(IPlayerOneActions instance)
         {
-            foreach (var item in m_Wrapper.m_PlayerActionsCallbackInterfaces)
+            foreach (var item in m_Wrapper.m_PlayerOneActionsCallbackInterfaces)
                 UnregisterCallbacks(item);
-            m_Wrapper.m_PlayerActionsCallbackInterfaces.Clear();
+            m_Wrapper.m_PlayerOneActionsCallbackInterfaces.Clear();
             AddCallbacks(instance);
         }
     }
-    public PlayerActions @Player => new PlayerActions(this);
+    public PlayerOneActions @PlayerOne => new PlayerOneActions(this);
+
+    // PlayerTwo
+    private readonly InputActionMap m_PlayerTwo;
+    private List<IPlayerTwoActions> m_PlayerTwoActionsCallbackInterfaces = new List<IPlayerTwoActions>();
+    private readonly InputAction m_PlayerTwo_CForwardBackwards;
+    private readonly InputAction m_PlayerTwo_ControllerLook;
+    private readonly InputAction m_PlayerTwo_Shoot;
+    public struct PlayerTwoActions
+    {
+        private @KeybindActions m_Wrapper;
+        public PlayerTwoActions(@KeybindActions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @CForwardBackwards => m_Wrapper.m_PlayerTwo_CForwardBackwards;
+        public InputAction @ControllerLook => m_Wrapper.m_PlayerTwo_ControllerLook;
+        public InputAction @Shoot => m_Wrapper.m_PlayerTwo_Shoot;
+        public InputActionMap Get() { return m_Wrapper.m_PlayerTwo; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(PlayerTwoActions set) { return set.Get(); }
+        public void AddCallbacks(IPlayerTwoActions instance)
+        {
+            if (instance == null || m_Wrapper.m_PlayerTwoActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_PlayerTwoActionsCallbackInterfaces.Add(instance);
+            @CForwardBackwards.started += instance.OnCForwardBackwards;
+            @CForwardBackwards.performed += instance.OnCForwardBackwards;
+            @CForwardBackwards.canceled += instance.OnCForwardBackwards;
+            @ControllerLook.started += instance.OnControllerLook;
+            @ControllerLook.performed += instance.OnControllerLook;
+            @ControllerLook.canceled += instance.OnControllerLook;
+            @Shoot.started += instance.OnShoot;
+            @Shoot.performed += instance.OnShoot;
+            @Shoot.canceled += instance.OnShoot;
+        }
+
+        private void UnregisterCallbacks(IPlayerTwoActions instance)
+        {
+            @CForwardBackwards.started -= instance.OnCForwardBackwards;
+            @CForwardBackwards.performed -= instance.OnCForwardBackwards;
+            @CForwardBackwards.canceled -= instance.OnCForwardBackwards;
+            @ControllerLook.started -= instance.OnControllerLook;
+            @ControllerLook.performed -= instance.OnControllerLook;
+            @ControllerLook.canceled -= instance.OnControllerLook;
+            @Shoot.started -= instance.OnShoot;
+            @Shoot.performed -= instance.OnShoot;
+            @Shoot.canceled -= instance.OnShoot;
+        }
+
+        public void RemoveCallbacks(IPlayerTwoActions instance)
+        {
+            if (m_Wrapper.m_PlayerTwoActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IPlayerTwoActions instance)
+        {
+            foreach (var item in m_Wrapper.m_PlayerTwoActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_PlayerTwoActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public PlayerTwoActions @PlayerTwo => new PlayerTwoActions(this);
     private int m_KeyboardMouseSchemeIndex = -1;
     public InputControlScheme KeyboardMouseScheme
     {
@@ -417,13 +483,17 @@ public partial class @KeybindActions: IInputActionCollection2, IDisposable
             return asset.controlSchemes[m_ControllerSchemeIndex];
         }
     }
-    public interface IPlayerActions
+    public interface IPlayerOneActions
     {
         void OnShoot(InputAction.CallbackContext context);
         void OnZoom(InputAction.CallbackContext context);
         void OnKForwardBackwards(InputAction.CallbackContext context);
-        void OnCForwardBackwards(InputAction.CallbackContext context);
         void OnMouseLook(InputAction.CallbackContext context);
+    }
+    public interface IPlayerTwoActions
+    {
+        void OnCForwardBackwards(InputAction.CallbackContext context);
         void OnControllerLook(InputAction.CallbackContext context);
+        void OnShoot(InputAction.CallbackContext context);
     }
 }
