@@ -27,7 +27,7 @@ public class Projectile : MonoBehaviour
     {
         while (health >= 0f)
         {
-            if (token.Token.IsCancellationRequested) return;
+            if (token.IsCancellationRequested) return;
             rigidbody.velocity = transform.forward * speed * Time.fixedDeltaTime;
             await UniTask.WaitForFixedUpdate(token.Token);
             health -= damageTick;
@@ -49,7 +49,12 @@ public class Projectile : MonoBehaviour
     private void DestroyTheProjectile(Collider other)
     {
         token.Cancel();
-        Destroy(other.transform.parent.gameObject);
+        other.transform.parent.GetComponent<Asteriod>().AsteriodTakeDamage();
         Destroy(gameObject);
+    }
+
+    private void OnDestroy()
+    {
+        token.Cancel();
     }
 }

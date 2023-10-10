@@ -15,15 +15,6 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Zoom",
-                    "type": "Button",
-                    "id": "48bd3dc7-54ed-4df0-876a-0ffddfd280eb",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "KForwardBackwards",
                     "type": "Value",
                     "id": "a9a68b3f-9f01-4ab8-988a-7a6d9ac67cf0",
@@ -40,6 +31,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "Start",
+                    "type": "Button",
+                    "id": "6a18312c-957c-4e05-9e88-8aa723a6751d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "RotatePlayer",
+                    "type": "Button",
+                    "id": "aee72b4e-6308-407c-928c-9c1d4cf88606",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -51,28 +60,6 @@
                     "processors": "",
                     "groups": "Keyboard & Mouse",
                     "action": "Shoot",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "cd2fbf07-0679-45f7-b955-8e63e87a5761",
-                    "path": "<Mouse>/rightButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard & Mouse",
-                    "action": "Zoom",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "bfa4e5fb-b1f0-452b-b600-6b86e0f95ca7",
-                    "path": "<Gamepad>/leftTrigger",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Controller",
-                    "action": "Zoom",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -110,6 +97,39 @@
                     "isPartOfComposite": true
                 },
                 {
+                    "name": "1D Axis",
+                    "id": "1becd4f0-ceb6-49b0-aaaf-1059dba45492",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "KForwardBackwards",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "e8be5c43-6423-43f8-8f7b-dfd8768051a8",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard & Mouse",
+                    "action": "KForwardBackwards",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "83f72aef-85b3-448f-b486-cfd3d72d296f",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard & Mouse",
+                    "action": "KForwardBackwards",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
                     "name": "",
                     "id": "8b972af0-e1e8-421f-aae9-67d762aba00f",
                     "path": "<Mouse>/position",
@@ -117,6 +137,28 @@
                     "processors": "",
                     "groups": "Keyboard & Mouse",
                     "action": "MouseLook",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "68793bb3-ad31-421a-a06a-8f8ff7d3c4a3",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard & Mouse",
+                    "action": "Start",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1ce376a9-f96f-4e0a-9e60-9b3f8c284d82",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard & Mouse",
+                    "action": "RotatePlayer",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -148,6 +190,15 @@
                     "name": "Shoot",
                     "type": "Button",
                     "id": "71266ed3-0129-476b-9cdb-36edddaf8069",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Start",
+                    "type": "Button",
+                    "id": "5db6eb5f-be78-451c-8e44-d714a1e20674",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -193,7 +244,7 @@
                     "id": "6c1d0b2d-0888-4473-bf12-5047dff73e38",
                     "path": "<Gamepad>/leftStick",
                     "interactions": "",
-                    "processors": "StickDeadzone(min=0.05,max=1),ScaleVector2(x=3,y=3)",
+                    "processors": "StickDeadzone(min=0.05,max=1)",
                     "groups": "Controller",
                     "action": "ControllerLook",
                     "isComposite": false,
@@ -205,8 +256,19 @@
                     "path": "<Gamepad>/buttonWest",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Controller",
                     "action": "Shoot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "33bd9cf6-c141-41a2-ae34-7956e6b4d74d",
+                    "path": "<Gamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Controller",
+                    "action": "Start",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

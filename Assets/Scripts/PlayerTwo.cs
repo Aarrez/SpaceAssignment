@@ -1,4 +1,3 @@
-using CustomDebugger;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -8,36 +7,31 @@ public class PlayerTwo : MonoBehaviour
     [SerializeField] private Projectile projectile;
     
     [SerializeField] private float moveSpeed = 1f;
-    [SerializeField] private float maxValue = 0.5f;
     private float time;
     
     private GameObject pointer;
 
     private Vector3 moveDirection;
-    private CharacterController controller;
-
-    private UniTask rotTask;
+    private new Rigidbody rigidbody;
     
     private float moveCtx;
 
     private bool doOperation = true;
     private bool contextBool = true;
 
-    private InputAction.CallbackContext context;
     private void Awake()
     {
         InputScript.CMovementAction += PlayerMovement;
         InputScript.ControllerMovement += ctx =>
         {
-            context = ctx;
-            contextBool = context.canceled;
+            contextBool = ctx.canceled;
             RotationMovement();
         };
 
         InputScript.CAction += ShootProjectile;
             
-        controller = GetComponent<CharacterController>();
-        pointer = GameObject.FindWithTag("Pointer");
+        rigidbody = GetComponent<Rigidbody>();
+        pointer = GetComponentInChildren<ControllerPointer>().gameObject;
     }
 
     private void ShootProjectile()
@@ -66,13 +60,8 @@ public class PlayerTwo : MonoBehaviour
     private async UniTask PlayerRotateToPointer()
     {
         Quaternion lookRotation = Quaternion.LookRotation(moveDirection);
-        time = 0;
-        while (time < maxValue)
-        {
-            transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, time);
-            await UniTask.WaitForFixedUpdate();
-            time += 0.1f;
-        }
+        rigidbody.rotation = lookRotation;
+        await UniTask.Yield(PlayerLoopTiming.FixedUpdate);
         doOperation = true;
     }
     
@@ -80,7 +69,7 @@ public class PlayerTwo : MonoBehaviour
     {
         moveDirection = pointer.transform.position - transform.position;
         moveDirection = moveDirection.normalized;
-        
-        controller.Move(moveDirection * (moveSpeed * moveCtx));
+
+        rigidbody.velocity += moveDirection * (moveSpeed * moveCtx);
     }
 }

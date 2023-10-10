@@ -1,10 +1,11 @@
-using CustomDebugger;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerOne : MonoBehaviour
 {
+    [SerializeField] private Projectile projectile;
+    
     [SerializeField] private float moveSpeed = 1f;
     [SerializeField] private float maxValue = 1f;
     private float time;
@@ -12,51 +13,63 @@ public class PlayerOne : MonoBehaviour
     private GameObject pointer;
 
     private Vector3 moveDirection;
-    private CharacterController controller;
-
-    private UniTask rotTask;
+    private new Rigidbody rigidbody;
+    
     
     private float moveCtx;
 
     private bool doOperation = true;
+    private bool contextBool = true;
     private void Awake()
     {
         InputScript.KMovementAction += PlayerMovement;
-        InputScript.MouseMovement += MouseMovement;
-        controller = GetComponent<CharacterController>();
-        pointer = GameObject.FindWithTag("Pointer");
+        InputScript.RightMouse += StartStopRotation;
+        InputScript.KAction += ShootProjectile;
+
+        rigidbody = GetComponent<Rigidbody>();
+        pointer = GetComponentInChildren<MousePointer>().gameObject;
+    }
+    
+    private void ShootProjectile()
+    {
+        Instantiate(projectile.gameObject, transform.position, transform.rotation);
     }
     
     private void PlayerMovement(InputAction.CallbackContext ctx)
     {
         moveCtx = ctx.ReadValue<float>();
     }
+    
+    private async void StartStopRotation(InputAction.CallbackContext ctx)
+    {
+        contextBool = ctx.canceled;
+        while (!contextBool)
+        {
+             MouseMovement();
+             await UniTask.Yield(PlayerLoopTiming.FixedUpdate);
+        }
+    }
 
-    private void MouseMovement(InputAction.CallbackContext ctx)
+    private void MouseMovement()
     {
         if (!doOperation) return;
         doOperation = false;
         PlayerRotateToPointer().Forget();
-        
     }
     private async UniTask PlayerRotateToPointer()
     {
+        moveDirection = pointer.transform.position - transform.position;
+        moveDirection = moveDirection.normalized;
         Quaternion lookRotation = Quaternion.LookRotation(moveDirection);
-        time = 0;
-        while (time < maxValue)
-        {
-            transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, time);
-            await UniTask.WaitForFixedUpdate();
-            time += 0.1f;
-        }
+        rigidbody.rotation =
+            Quaternion.RotateTowards(rigidbody.rotation, lookRotation, maxValue);
+        
+        await UniTask.WaitForFixedUpdate();
         doOperation = true;
     }
     
-    private void Update()
+    private void FixedUpdate()
     {
-        moveDirection = pointer.transform.position - transform.position;
-        moveDirection = moveDirection.normalized;
-        
-        controller.Move(moveDirection * (moveSpeed * moveCtx));
+        rigidbody.velocity += transform.forward * (moveSpeed * moveCtx);
     }
 }

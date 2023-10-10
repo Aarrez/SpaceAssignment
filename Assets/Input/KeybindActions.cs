@@ -37,15 +37,6 @@ public partial class @KeybindActions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Zoom"",
-                    ""type"": ""Button"",
-                    ""id"": ""48bd3dc7-54ed-4df0-876a-0ffddfd280eb"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""KForwardBackwards"",
                     ""type"": ""Value"",
                     ""id"": ""a9a68b3f-9f01-4ab8-988a-7a6d9ac67cf0"",
@@ -62,6 +53,24 @@ public partial class @KeybindActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Start"",
+                    ""type"": ""Button"",
+                    ""id"": ""6a18312c-957c-4e05-9e88-8aa723a6751d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""RotatePlayer"",
+                    ""type"": ""Button"",
+                    ""id"": ""aee72b4e-6308-407c-928c-9c1d4cf88606"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -73,28 +82,6 @@ public partial class @KeybindActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Keyboard & Mouse"",
                     ""action"": ""Shoot"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""cd2fbf07-0679-45f7-b955-8e63e87a5761"",
-                    ""path"": ""<Mouse>/rightButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard & Mouse"",
-                    ""action"": ""Zoom"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""bfa4e5fb-b1f0-452b-b600-6b86e0f95ca7"",
-                    ""path"": ""<Gamepad>/leftTrigger"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Controller"",
-                    ""action"": ""Zoom"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -132,6 +119,39 @@ public partial class @KeybindActions: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""1becd4f0-ceb6-49b0-aaaf-1059dba45492"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""KForwardBackwards"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""e8be5c43-6423-43f8-8f7b-dfd8768051a8"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard & Mouse"",
+                    ""action"": ""KForwardBackwards"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""83f72aef-85b3-448f-b486-cfd3d72d296f"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard & Mouse"",
+                    ""action"": ""KForwardBackwards"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
                     ""name"": """",
                     ""id"": ""8b972af0-e1e8-421f-aae9-67d762aba00f"",
                     ""path"": ""<Mouse>/position"",
@@ -139,6 +159,28 @@ public partial class @KeybindActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Keyboard & Mouse"",
                     ""action"": ""MouseLook"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""68793bb3-ad31-421a-a06a-8f8ff7d3c4a3"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard & Mouse"",
+                    ""action"": ""Start"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1ce376a9-f96f-4e0a-9e60-9b3f8c284d82"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard & Mouse"",
+                    ""action"": ""RotatePlayer"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -170,6 +212,15 @@ public partial class @KeybindActions: IInputActionCollection2, IDisposable
                     ""name"": ""Shoot"",
                     ""type"": ""Button"",
                     ""id"": ""71266ed3-0129-476b-9cdb-36edddaf8069"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Start"",
+                    ""type"": ""Button"",
+                    ""id"": ""5db6eb5f-be78-451c-8e44-d714a1e20674"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -215,7 +266,7 @@ public partial class @KeybindActions: IInputActionCollection2, IDisposable
                     ""id"": ""6c1d0b2d-0888-4473-bf12-5047dff73e38"",
                     ""path"": ""<Gamepad>/leftStick"",
                     ""interactions"": """",
-                    ""processors"": ""StickDeadzone(min=0.05,max=1),ScaleVector2(x=3,y=3)"",
+                    ""processors"": ""StickDeadzone(min=0.05,max=1)"",
                     ""groups"": ""Controller"",
                     ""action"": ""ControllerLook"",
                     ""isComposite"": false,
@@ -227,8 +278,19 @@ public partial class @KeybindActions: IInputActionCollection2, IDisposable
                     ""path"": ""<Gamepad>/buttonWest"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Controller"",
                     ""action"": ""Shoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""33bd9cf6-c141-41a2-ae34-7956e6b4d74d"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Controller"",
+                    ""action"": ""Start"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -268,14 +330,16 @@ public partial class @KeybindActions: IInputActionCollection2, IDisposable
         // PlayerOne
         m_PlayerOne = asset.FindActionMap("PlayerOne", throwIfNotFound: true);
         m_PlayerOne_Shoot = m_PlayerOne.FindAction("Shoot", throwIfNotFound: true);
-        m_PlayerOne_Zoom = m_PlayerOne.FindAction("Zoom", throwIfNotFound: true);
         m_PlayerOne_KForwardBackwards = m_PlayerOne.FindAction("KForwardBackwards", throwIfNotFound: true);
         m_PlayerOne_MouseLook = m_PlayerOne.FindAction("MouseLook", throwIfNotFound: true);
+        m_PlayerOne_Start = m_PlayerOne.FindAction("Start", throwIfNotFound: true);
+        m_PlayerOne_RotatePlayer = m_PlayerOne.FindAction("RotatePlayer", throwIfNotFound: true);
         // PlayerTwo
         m_PlayerTwo = asset.FindActionMap("PlayerTwo", throwIfNotFound: true);
         m_PlayerTwo_CForwardBackwards = m_PlayerTwo.FindAction("CForwardBackwards", throwIfNotFound: true);
         m_PlayerTwo_ControllerLook = m_PlayerTwo.FindAction("ControllerLook", throwIfNotFound: true);
         m_PlayerTwo_Shoot = m_PlayerTwo.FindAction("Shoot", throwIfNotFound: true);
+        m_PlayerTwo_Start = m_PlayerTwo.FindAction("Start", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -338,17 +402,19 @@ public partial class @KeybindActions: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_PlayerOne;
     private List<IPlayerOneActions> m_PlayerOneActionsCallbackInterfaces = new List<IPlayerOneActions>();
     private readonly InputAction m_PlayerOne_Shoot;
-    private readonly InputAction m_PlayerOne_Zoom;
     private readonly InputAction m_PlayerOne_KForwardBackwards;
     private readonly InputAction m_PlayerOne_MouseLook;
+    private readonly InputAction m_PlayerOne_Start;
+    private readonly InputAction m_PlayerOne_RotatePlayer;
     public struct PlayerOneActions
     {
         private @KeybindActions m_Wrapper;
         public PlayerOneActions(@KeybindActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @Shoot => m_Wrapper.m_PlayerOne_Shoot;
-        public InputAction @Zoom => m_Wrapper.m_PlayerOne_Zoom;
         public InputAction @KForwardBackwards => m_Wrapper.m_PlayerOne_KForwardBackwards;
         public InputAction @MouseLook => m_Wrapper.m_PlayerOne_MouseLook;
+        public InputAction @Start => m_Wrapper.m_PlayerOne_Start;
+        public InputAction @RotatePlayer => m_Wrapper.m_PlayerOne_RotatePlayer;
         public InputActionMap Get() { return m_Wrapper.m_PlayerOne; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -361,15 +427,18 @@ public partial class @KeybindActions: IInputActionCollection2, IDisposable
             @Shoot.started += instance.OnShoot;
             @Shoot.performed += instance.OnShoot;
             @Shoot.canceled += instance.OnShoot;
-            @Zoom.started += instance.OnZoom;
-            @Zoom.performed += instance.OnZoom;
-            @Zoom.canceled += instance.OnZoom;
             @KForwardBackwards.started += instance.OnKForwardBackwards;
             @KForwardBackwards.performed += instance.OnKForwardBackwards;
             @KForwardBackwards.canceled += instance.OnKForwardBackwards;
             @MouseLook.started += instance.OnMouseLook;
             @MouseLook.performed += instance.OnMouseLook;
             @MouseLook.canceled += instance.OnMouseLook;
+            @Start.started += instance.OnStart;
+            @Start.performed += instance.OnStart;
+            @Start.canceled += instance.OnStart;
+            @RotatePlayer.started += instance.OnRotatePlayer;
+            @RotatePlayer.performed += instance.OnRotatePlayer;
+            @RotatePlayer.canceled += instance.OnRotatePlayer;
         }
 
         private void UnregisterCallbacks(IPlayerOneActions instance)
@@ -377,15 +446,18 @@ public partial class @KeybindActions: IInputActionCollection2, IDisposable
             @Shoot.started -= instance.OnShoot;
             @Shoot.performed -= instance.OnShoot;
             @Shoot.canceled -= instance.OnShoot;
-            @Zoom.started -= instance.OnZoom;
-            @Zoom.performed -= instance.OnZoom;
-            @Zoom.canceled -= instance.OnZoom;
             @KForwardBackwards.started -= instance.OnKForwardBackwards;
             @KForwardBackwards.performed -= instance.OnKForwardBackwards;
             @KForwardBackwards.canceled -= instance.OnKForwardBackwards;
             @MouseLook.started -= instance.OnMouseLook;
             @MouseLook.performed -= instance.OnMouseLook;
             @MouseLook.canceled -= instance.OnMouseLook;
+            @Start.started -= instance.OnStart;
+            @Start.performed -= instance.OnStart;
+            @Start.canceled -= instance.OnStart;
+            @RotatePlayer.started -= instance.OnRotatePlayer;
+            @RotatePlayer.performed -= instance.OnRotatePlayer;
+            @RotatePlayer.canceled -= instance.OnRotatePlayer;
         }
 
         public void RemoveCallbacks(IPlayerOneActions instance)
@@ -410,6 +482,7 @@ public partial class @KeybindActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerTwo_CForwardBackwards;
     private readonly InputAction m_PlayerTwo_ControllerLook;
     private readonly InputAction m_PlayerTwo_Shoot;
+    private readonly InputAction m_PlayerTwo_Start;
     public struct PlayerTwoActions
     {
         private @KeybindActions m_Wrapper;
@@ -417,6 +490,7 @@ public partial class @KeybindActions: IInputActionCollection2, IDisposable
         public InputAction @CForwardBackwards => m_Wrapper.m_PlayerTwo_CForwardBackwards;
         public InputAction @ControllerLook => m_Wrapper.m_PlayerTwo_ControllerLook;
         public InputAction @Shoot => m_Wrapper.m_PlayerTwo_Shoot;
+        public InputAction @Start => m_Wrapper.m_PlayerTwo_Start;
         public InputActionMap Get() { return m_Wrapper.m_PlayerTwo; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -435,6 +509,9 @@ public partial class @KeybindActions: IInputActionCollection2, IDisposable
             @Shoot.started += instance.OnShoot;
             @Shoot.performed += instance.OnShoot;
             @Shoot.canceled += instance.OnShoot;
+            @Start.started += instance.OnStart;
+            @Start.performed += instance.OnStart;
+            @Start.canceled += instance.OnStart;
         }
 
         private void UnregisterCallbacks(IPlayerTwoActions instance)
@@ -448,6 +525,9 @@ public partial class @KeybindActions: IInputActionCollection2, IDisposable
             @Shoot.started -= instance.OnShoot;
             @Shoot.performed -= instance.OnShoot;
             @Shoot.canceled -= instance.OnShoot;
+            @Start.started -= instance.OnStart;
+            @Start.performed -= instance.OnStart;
+            @Start.canceled -= instance.OnStart;
         }
 
         public void RemoveCallbacks(IPlayerTwoActions instance)
@@ -486,14 +566,16 @@ public partial class @KeybindActions: IInputActionCollection2, IDisposable
     public interface IPlayerOneActions
     {
         void OnShoot(InputAction.CallbackContext context);
-        void OnZoom(InputAction.CallbackContext context);
         void OnKForwardBackwards(InputAction.CallbackContext context);
         void OnMouseLook(InputAction.CallbackContext context);
+        void OnStart(InputAction.CallbackContext context);
+        void OnRotatePlayer(InputAction.CallbackContext context);
     }
     public interface IPlayerTwoActions
     {
         void OnCForwardBackwards(InputAction.CallbackContext context);
         void OnControllerLook(InputAction.CallbackContext context);
         void OnShoot(InputAction.CallbackContext context);
+        void OnStart(InputAction.CallbackContext context);
     }
 }
