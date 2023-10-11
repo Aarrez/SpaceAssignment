@@ -1,6 +1,5 @@
 using UnityEngine;
 
-
 namespace CustomDebugger
 {
     public class Debugger
@@ -14,7 +13,7 @@ namespace CustomDebugger
         {
             Debug.Log(log);
         }
-        
+
         public Debugger(float log)
         {
             Debug.Log(log);
@@ -24,7 +23,7 @@ namespace CustomDebugger
         {
             Debug.Log(log);
         }
-        
+
         public Debugger(Vector3 log)
         {
             Debug.Log(log);
@@ -35,7 +34,5 @@ namespace CustomDebugger
             Debug.Log(log);
         }
 #endif
-        
     }
 }
-

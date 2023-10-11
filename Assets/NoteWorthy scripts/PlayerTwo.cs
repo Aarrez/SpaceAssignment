@@ -8,12 +8,11 @@ public class PlayerTwo : MonoBehaviour
     [SerializeField] private Projectile projectile;
     
     [SerializeField] private float moveSpeed = 1f;
-    private float time;
     
     private GameObject pointer;
+    private Rigidbody rigidbody;
 
     private Vector3 moveDirection;
-    private Rigidbody rigidbody;
     
     private float moveCtx;
 

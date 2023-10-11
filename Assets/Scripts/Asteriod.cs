@@ -8,4 +8,3 @@ public class Asteriod : MonoBehaviour
         Destroy(gameObject);
     }
 }
-
