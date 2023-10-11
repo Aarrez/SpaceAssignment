@@ -71,6 +71,15 @@ public partial class @KeybindActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""e5ee574c-6380-4de8-a558-55a99b6130d9"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -165,7 +174,7 @@ public partial class @KeybindActions: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""68793bb3-ad31-421a-a06a-8f8ff7d3c4a3"",
-                    ""path"": ""<Keyboard>/escape"",
+                    ""path"": ""<Keyboard>/enter"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard & Mouse"",
@@ -181,6 +190,17 @@ public partial class @KeybindActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Keyboard & Mouse"",
                     ""action"": ""RotatePlayer"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""26149a24-70dc-4d21-870c-3e0ddf7832d1"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard & Mouse"",
+                    ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -221,6 +241,15 @@ public partial class @KeybindActions: IInputActionCollection2, IDisposable
                     ""name"": ""Start"",
                     ""type"": ""Button"",
                     ""id"": ""5db6eb5f-be78-451c-8e44-d714a1e20674"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""ab593a7c-474d-4a51-8aad-5230b2b0fcd6"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -293,6 +322,17 @@ public partial class @KeybindActions: IInputActionCollection2, IDisposable
                     ""action"": ""Start"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""387b8f70-377b-4e13-aa9e-2b6df5fdbf99"",
+                    ""path"": ""<Gamepad>/select"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Controller"",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -334,12 +374,14 @@ public partial class @KeybindActions: IInputActionCollection2, IDisposable
         m_PlayerOne_MouseLook = m_PlayerOne.FindAction("MouseLook", throwIfNotFound: true);
         m_PlayerOne_Start = m_PlayerOne.FindAction("Start", throwIfNotFound: true);
         m_PlayerOne_RotatePlayer = m_PlayerOne.FindAction("RotatePlayer", throwIfNotFound: true);
+        m_PlayerOne_Pause = m_PlayerOne.FindAction("Pause", throwIfNotFound: true);
         // PlayerTwo
         m_PlayerTwo = asset.FindActionMap("PlayerTwo", throwIfNotFound: true);
         m_PlayerTwo_CForwardBackwards = m_PlayerTwo.FindAction("CForwardBackwards", throwIfNotFound: true);
         m_PlayerTwo_ControllerLook = m_PlayerTwo.FindAction("ControllerLook", throwIfNotFound: true);
         m_PlayerTwo_Shoot = m_PlayerTwo.FindAction("Shoot", throwIfNotFound: true);
         m_PlayerTwo_Start = m_PlayerTwo.FindAction("Start", throwIfNotFound: true);
+        m_PlayerTwo_Pause = m_PlayerTwo.FindAction("Pause", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -406,6 +448,7 @@ public partial class @KeybindActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerOne_MouseLook;
     private readonly InputAction m_PlayerOne_Start;
     private readonly InputAction m_PlayerOne_RotatePlayer;
+    private readonly InputAction m_PlayerOne_Pause;
     public struct PlayerOneActions
     {
         private @KeybindActions m_Wrapper;
@@ -415,6 +458,7 @@ public partial class @KeybindActions: IInputActionCollection2, IDisposable
         public InputAction @MouseLook => m_Wrapper.m_PlayerOne_MouseLook;
         public InputAction @Start => m_Wrapper.m_PlayerOne_Start;
         public InputAction @RotatePlayer => m_Wrapper.m_PlayerOne_RotatePlayer;
+        public InputAction @Pause => m_Wrapper.m_PlayerOne_Pause;
         public InputActionMap Get() { return m_Wrapper.m_PlayerOne; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -439,6 +483,9 @@ public partial class @KeybindActions: IInputActionCollection2, IDisposable
             @RotatePlayer.started += instance.OnRotatePlayer;
             @RotatePlayer.performed += instance.OnRotatePlayer;
             @RotatePlayer.canceled += instance.OnRotatePlayer;
+            @Pause.started += instance.OnPause;
+            @Pause.performed += instance.OnPause;
+            @Pause.canceled += instance.OnPause;
         }
 
         private void UnregisterCallbacks(IPlayerOneActions instance)
@@ -458,6 +505,9 @@ public partial class @KeybindActions: IInputActionCollection2, IDisposable
             @RotatePlayer.started -= instance.OnRotatePlayer;
             @RotatePlayer.performed -= instance.OnRotatePlayer;
             @RotatePlayer.canceled -= instance.OnRotatePlayer;
+            @Pause.started -= instance.OnPause;
+            @Pause.performed -= instance.OnPause;
+            @Pause.canceled -= instance.OnPause;
         }
 
         public void RemoveCallbacks(IPlayerOneActions instance)
@@ -483,6 +533,7 @@ public partial class @KeybindActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerTwo_ControllerLook;
     private readonly InputAction m_PlayerTwo_Shoot;
     private readonly InputAction m_PlayerTwo_Start;
+    private readonly InputAction m_PlayerTwo_Pause;
     public struct PlayerTwoActions
     {
         private @KeybindActions m_Wrapper;
@@ -491,6 +542,7 @@ public partial class @KeybindActions: IInputActionCollection2, IDisposable
         public InputAction @ControllerLook => m_Wrapper.m_PlayerTwo_ControllerLook;
         public InputAction @Shoot => m_Wrapper.m_PlayerTwo_Shoot;
         public InputAction @Start => m_Wrapper.m_PlayerTwo_Start;
+        public InputAction @Pause => m_Wrapper.m_PlayerTwo_Pause;
         public InputActionMap Get() { return m_Wrapper.m_PlayerTwo; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -512,6 +564,9 @@ public partial class @KeybindActions: IInputActionCollection2, IDisposable
             @Start.started += instance.OnStart;
             @Start.performed += instance.OnStart;
             @Start.canceled += instance.OnStart;
+            @Pause.started += instance.OnPause;
+            @Pause.performed += instance.OnPause;
+            @Pause.canceled += instance.OnPause;
         }
 
         private void UnregisterCallbacks(IPlayerTwoActions instance)
@@ -528,6 +583,9 @@ public partial class @KeybindActions: IInputActionCollection2, IDisposable
             @Start.started -= instance.OnStart;
             @Start.performed -= instance.OnStart;
             @Start.canceled -= instance.OnStart;
+            @Pause.started -= instance.OnPause;
+            @Pause.performed -= instance.OnPause;
+            @Pause.canceled -= instance.OnPause;
         }
 
         public void RemoveCallbacks(IPlayerTwoActions instance)
@@ -570,6 +628,7 @@ public partial class @KeybindActions: IInputActionCollection2, IDisposable
         void OnMouseLook(InputAction.CallbackContext context);
         void OnStart(InputAction.CallbackContext context);
         void OnRotatePlayer(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
     }
     public interface IPlayerTwoActions
     {
@@ -577,5 +636,6 @@ public partial class @KeybindActions: IInputActionCollection2, IDisposable
         void OnControllerLook(InputAction.CallbackContext context);
         void OnShoot(InputAction.CallbackContext context);
         void OnStart(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
     }
 }

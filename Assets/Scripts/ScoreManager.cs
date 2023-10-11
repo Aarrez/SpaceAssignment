@@ -11,8 +11,5 @@ public class ScoreManager : MonoBehaviour
         AddScore += UpdateScore;
     }
 
-    private void UpdateScore(int score)
-    {
-        
-    }
+    private void UpdateScore(int score) { }
 }

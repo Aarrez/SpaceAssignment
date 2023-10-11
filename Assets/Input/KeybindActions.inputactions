@@ -49,6 +49,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Pause",
+                    "type": "Button",
+                    "id": "e5ee574c-6380-4de8-a558-55a99b6130d9",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -143,7 +152,7 @@
                 {
                     "name": "",
                     "id": "68793bb3-ad31-421a-a06a-8f8ff7d3c4a3",
-                    "path": "<Keyboard>/escape",
+                    "path": "<Keyboard>/enter",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard & Mouse",
@@ -159,6 +168,17 @@
                     "processors": "",
                     "groups": "Keyboard & Mouse",
                     "action": "RotatePlayer",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "26149a24-70dc-4d21-870c-3e0ddf7832d1",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard & Mouse",
+                    "action": "Pause",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -199,6 +219,15 @@
                     "name": "Start",
                     "type": "Button",
                     "id": "5db6eb5f-be78-451c-8e44-d714a1e20674",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Pause",
+                    "type": "Button",
+                    "id": "ab593a7c-474d-4a51-8aad-5230b2b0fcd6",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -269,6 +298,17 @@
                     "processors": "",
                     "groups": "Controller",
                     "action": "Start",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "387b8f70-377b-4e13-aa9e-2b6df5fdbf99",
+                    "path": "<Gamepad>/select",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Controller",
+                    "action": "Pause",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

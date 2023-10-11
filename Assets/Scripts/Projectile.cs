@@ -1,18 +1,18 @@
-using System;
 using Cysharp.Threading.Tasks;
 using System.Threading;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    [SerializeField] private float health = 10f;
+    [Header("Health goes down by DamageTick every FixedUpdate")] [SerializeField]
+    private float health = 10f;
     [SerializeField] private float damageTick = 0.5f;
     [SerializeField] private float speed = 10f;
 
-    private new Rigidbody rigidbody;
+    public Rigidbody rigidbody;
+    private readonly CancellationTokenSource token = new CancellationTokenSource();
 
     private UniTask uniTask;
-    private readonly CancellationTokenSource token = new CancellationTokenSource();
 
     private void Awake()
     {
@@ -23,16 +23,9 @@ public class Projectile : MonoBehaviour
         MoveMissileForward().Preserve();
     }
 
-    private async UniTask MoveMissileForward()
+    private void OnDestroy()
     {
-        while (health >= 0f)
-        {
-            if (token.IsCancellationRequested) return;
-            rigidbody.velocity = transform.forward * speed * Time.fixedDeltaTime;
-            await UniTask.WaitForFixedUpdate(token.Token);
-            health -= damageTick;
-        } 
-        DestroyTheProjectile();
+        token.Cancel();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -40,21 +33,27 @@ public class Projectile : MonoBehaviour
         DestroyTheProjectile(other);
     }
 
+    private async UniTask MoveMissileForward()
+    {
+        while (health >= 0f || token.IsCancellationRequested)
+        {
+            rigidbody.velocity += transform.forward * speed;
+            await UniTask.WaitForFixedUpdate(token.Token);
+            health -= damageTick;
+        }
+        DestroyTheProjectile();
+    }
+
     private void DestroyTheProjectile()
     {
         token.Cancel();
         Destroy(gameObject);
     }
-    
+
     private void DestroyTheProjectile(Collider other)
     {
         token.Cancel();
         other.transform.parent.GetComponent<Asteriod>().AsteriodTakeDamage();
         Destroy(gameObject);
-    }
-
-    private void OnDestroy()
-    {
-        token.Cancel();
     }
 }

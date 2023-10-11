@@ -1012,8 +1012,6 @@ GameObject:
   - component: {fileID: 8483644888551079096}
   - component: {fileID: 6280486596467890488}
   - component: {fileID: 2104142717926032709}
-  - component: {fileID: 5415378298741674587}
-  - component: {fileID: 7690876256612062666}
   m_Layer: 3
   m_Name: StarSparrow20
   m_TagString: Player
@@ -1107,48 +1105,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.17, y: 2.7161152, z: 12.203047}
   m_Center: {x: 0, y: -0.000000834465, z: -0.0000023841858}
---- !u!65 &5415378298741674587
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7959460276335262157}
-  m_Material: {fileID: 13400000, guid: c7381148be1b2c941ad54c342f60e877, type: 2}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 2.17, y: 1.92, z: 3.9}
-  m_Center: {x: 2.2, y: -0.19, z: -3.88}
---- !u!65 &7690876256612062666
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7959460276335262157}
-  m_Material: {fileID: 13400000, guid: c7381148be1b2c941ad54c342f60e877, type: 2}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 2.17, y: 1.92, z: 3.9}
-  m_Center: {x: -2.2, y: -0.19, z: -3.88}
 --- !u!1 &8077755497828714968
 GameObject:
   m_ObjectHideFlags: 0
@@ -1158,9 +1114,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2857860171678210134}
+  - component: {fileID: 1274030064636151569}
   - component: {fileID: 1823390682352054418}
   - component: {fileID: 7826710974544586862}
-  - component: {fileID: 1274030064636151569}
   m_Layer: 3
   m_Name: 2 Player Ship
   m_TagString: Player
@@ -1186,6 +1142,33 @@ Transform:
   - {fileID: 6739739967639393771}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &1274030064636151569
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8077755497828714968}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0.2
+  m_AngularDrag: 0.2
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
 --- !u!114 &1823390682352054418
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1199,7 +1182,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 1190575850166000598, guid: 8b227e0429c621940acb9e2e8d18d12f, type: 3}
-  moveSpeed: 0.3
+  moveSpeed: 1
 --- !u!114 &7826710974544586862
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1230,33 +1213,6 @@ MonoBehaviour:
   m_DefaultActionMap: PlayerTwo
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 4451293772587730169}
---- !u!54 &1274030064636151569
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8077755497828714968}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0.2
-  m_AngularDrag: 0.2
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 32
-  m_CollisionDetection: 0
 --- !u!1 &8918605053575235471
 GameObject:
   m_ObjectHideFlags: 3
